@@ -1,0 +1,118 @@
+
+
+<p id="notice"><%= notice %></p>
+
+
+<br><br>
+<div class="container-fluid">
+
+<div class="col-md-7 col-sm-10 col-xs-12" style="width: 53.333333%;">
+<div class="row">
+
+<%= form_for @search, html: {class: "form-inline"} do |s| %>
+
+
+  <div class="form-group">
+    <%= s.select :p_type, options_for_select(@ptypes), {include_blank: "Property Type"}, { class:"ptype_dropdown" }  %>
+  
+  </div>
+
+  <div class="form-group">
+    <%= s.select :bedroom, options_for_select(@rooms), {include_blank: "Bedroom"}, { class:"pbedroom_dropdown" } %>
+  </div>
+
+  <div class="form-group">
+    <%= s.select :bathroom, options_for_select(@bathroom), {include_blank: "Bathroom"}, { class:"pbathroom_dropdown" } %>
+  </div>
+
+  <div class="form-group">
+    <%= s.select :rent, options_for_select(@rent_price), {include_blank: "$  Max "}, { class:"prent_dropdown" } %>
+  </div>
+
+  <div class="form-group"><%= s.submit "Detailed Search", class: "btn-Dsearch" %></div>
+
+ <% end %>  
+
+</div>
+
+
+<br>
+
+<div class="row">
+
+<% @p_listings.each do |p_listing| %>
+
+  
+    <div class="thumbnail">
+      <%= image_tag p_listing.property_images.first.try(:image_file).try(:url), :class => "style_image" %>
+      <div class="rent-on-img">$ <%= p_listing.total_rent %></div>
+      <div class="image-footer">
+        <div class="footer-text">City <%= p_listing.city_place %> - <%= p_listing.property_type %> at <%= p_listing.street %><br>
+         Bathroom - <%= p_listing.bathroom %> | Bed - <%= p_listing.room %>
+       
+        <%= link_to 'View', p_listing %>
+        <%= link_to 'Edit', edit_p_listing_path(p_listing) %>
+        <%= link_to 'Delete', p_listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  <% end %>
+
+ </div>
+
+ <div class="row">
+<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<%= link_to 'Add New', new_p_listing_path, class: 'btn btn-default' %>
+</div>
+
+<br><br>
+
+</div>
+
+
+<div class="hidden-xs hidden-sm">
+
+<div class="row">
+
+  <div class="index-map-div" id="map">
+
+  </div>
+  
+</div>
+</div>
+ 
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
+
+</div>
+

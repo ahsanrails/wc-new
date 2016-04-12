@@ -1,0 +1,79 @@
+
+<br><br>
+<div class="container-fluid">
+
+<div class="col-md-9 col-sm-10 col-xs-12">
+
+
+<br><br>
+
+<div class="row">
+
+<h1>Advanced Search</h1>
+
+<%= form_for @search, html: {class: "pure-form"} do |s| %>
+
+
+
+	<div class="field">
+    <%= s.label :Property_Type %><br />
+    <%= s.select :p_type, options_for_select(@ptypes), :include_blank => true %>
+	</div>
+
+	<div class="field">
+    <%= s.label :Bedroom %><br />
+    <%= s.select :bedroom, options_for_select(@rooms), :include_blank => true %>
+	</div>
+
+	<div class="field">
+    <%= s.label :Bathroom %><br />
+    <%= s.select :bathroom, options_for_select(@bathroom), :include_blank => true %>
+	</div>
+
+	<div class="field">
+    <%= s.label :Rent %><br />
+    <%= s.select :rent, options_for_select(@rent_price), :include_blank => true %>
+	</div>
+
+	<div class="action"><%= s.submit "Search", class: "btn btn-primart btn-lg" %></div>
+
+ <% end %>	
+
+		<a><%= link_to 'Back', p_listings_path %></a>
+
+</div>
+
+
+
+
+
+<br><br><br><br>
+<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<%= link_to 'Add New', new_p_listing_path, class: 'btn btn-default' %>
+</div>
+</div>
+
+  
+
+
+
+
+

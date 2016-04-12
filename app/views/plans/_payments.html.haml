@@ -1,0 +1,124 @@
+%br
+%br
+%br
+.container
+  .row
+    .col-xs-6.col-sm-6.col-md-3.col-lg-3
+      .panel.price.panel-red
+        .panel-heading.text-center
+          %h1
+            =@plan1.name
+        .panel-body.text-center
+          %h3
+            $10/Month
+        %ul{class:"list-group list-group-flush text-center"}
+          %h4
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Personal Use
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Unlimited Posts
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Free ads
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Free Offers
+              %br/
+        .panel-footer
+          = link_to new_registration_path(plan_id: @plan1.id), class: "ruby" do
+            %button.btn{class: "btn btn-lg btn-block btn-danger"} Register
+
+    .col-xs-6.col-sm-6.col-md-3.col-lg-3
+      .panel.price.panel-blue
+        .panel-heading.text-center
+          %h1
+            =@plan2.name
+        .panel-body.text-center
+          %h3
+            $20/Month
+        %ul{class:"list-group list-group-flush text-center"}
+          %h4
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-info"}
+              Personal Use
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-info"}
+              Unlimited Posts
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-info"}
+              Free ads
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-info"}
+              Free Offers
+              %br/
+        .panel-footer
+          = link_to new_registration_path(plan_id: @plan2.id), class: "ruby" do
+            %button.btn{class: "btn btn-lg btn-block btn-info"} Register
+
+    .col-xs-6.col-sm-6.col-md-3.col-lg-3
+      .panel.price.panel-green
+        .panel-heading.text-center
+          %h1
+            =@plan3.name
+        .panel-body.text-center
+          %h3
+            $30/Month
+        %ul{class:"list-group list-group-flush text-center"}
+          %h4
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-success"}
+              Personal Use
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-success"}
+              Unlimited Posts
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-success"}
+              Free ads
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-success"}
+              Free Offers
+              %br/
+        .panel-footer
+          = link_to new_registration_path(plan_id: @plan3.id), class: "ruby" do
+            %button.btn{class: "btn btn-lg btn-block btn-success"} Register
+
+    .col-xs-6.col-sm-6.col-md-3.col-lg-3
+      .panel.price.panel-grey
+        .panel-heading.text-center
+          %h1
+            =@plan4.name
+        .panel-body.text-center
+          %h3
+            $60/Month
+        %ul{class:"list-group list-group-flush text-center"}
+          %h4
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Personal Use
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Unlimited Posts
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Free ads
+              %br/
+            %li{class:"list-group-item"}
+              %i{class:"icon-ok text-danger"}
+              Free Offers
+              %br/
+        .panel-footer
+          = link_to new_registration_path(plan_id: @plan4.id), class: "ruby" do
+            %button.btn{class: "btn btn-lg btn-block btn-info grey-button"} Register

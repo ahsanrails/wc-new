@@ -1,0 +1,60 @@
+ <div class="modal fade" id="myModal-signup" role="dialog">
+    <div class="modal-dialog modal-sm" style="margin-top:110px;">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header header-margin">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body test-font">
+
+<%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+   <%= devise_error_messages! %>
+
+
+<a class="btn btn-block btn-social btn-facebook">
+  <span class="fa fa-facebook facebook-icon"></span>
+  Register with Facebook
+</a>
+<br>
+<p style="color: #ccc;">_________________<span> OR </span>________________</p>
+<br>
+  <div class="form-group email">
+    <span class="fa fa-at"></span>
+    <%= f.email_field :email, autofocus: true, class: 'form-control login_field_height', placeholder: 'Email' %>
+  </div>
+
+  <div class="form-group register-password">
+  
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <span class="fa fa-lock"></span>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control login_field_height', placeholder: 'Password' %>
+  </div>
+
+  <div class="form-group rp-password">
+  <span class="fa fa-lock"></span>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control login_field_height', placeholder: 'Repeat Password' %>
+  </div>
+<br>
+<p class="condition-line"><b><span style="color:#FF4500;">Conditions</span> and <span style="color:#FF4500;">Private Policy</span> accepted </b></p>
+  <div class="form-group">
+    <%= f.submit "Register", class: "btn_register" %>
+
+  </div>
+<% end %>
+<br><br><br>
+
+        </div>
+        <div class="modal-footer">
+        <p class="signup-footer">
+         Have you account ? <%= link_to "Signin", popups_login_path,remote:"true", style:"color:#FF4500;",
+         :type => :reset, "data-dismiss" => "modal", "aria-hidden" => "true" %>
+        </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  

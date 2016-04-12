@@ -1,0 +1,25 @@
+<%= form_for(@property_image) do |f| %>
+  <% if @property_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property_image.errors.count, "error") %> prohibited this property_image from being saved:</h2>
+
+      <ul>
+      <% @property_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :p_listing_id %><br>
+    <%= f.number_field :p_listing_id %>
+  </div>
+  <div class="field">
+    <%= f.label :image_file %><br>
+    <%= f.text_field :image_file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

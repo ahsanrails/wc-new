@@ -1,0 +1,22 @@
+.plan-nav-wrapper
+  %p#notice.alert.alert-success= notice
+  %p
+    %strong Plan:
+    = @registration.plan.name
+  %p
+    %strong Full name:
+    = @registration.full_name
+  %p
+    %strong Company:
+    = @registration.company
+  %p
+    %strong Email:
+    = @registration.email
+  %p
+    %strong Contact:
+    = @registration.contact
+  %p
+    %strong Token:
+    = @registration.card_token
+  = link_to 'Edit', edit_registration_path(@registration), class: 'btn btn-primary'
+  = link_to 'Back', registrations_path, class: 'btn btn-primary'

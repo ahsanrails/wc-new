@@ -1,0 +1,109 @@
+
+   <br><br>
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid">
+
+
+    <div class="col-md-7 col-sm-10 col-xs-12">
+      <div class="row">
+      <div class="panel panel-default">
+
+        <div class="listing-heading">
+          <div class="panel-title">
+            <h4>City <%= @p_listing.city_place %>-<%= @p_listing.street %><span style="float:right">$ <%= @p_listing.total_rent %></span></h4>
+            <h5>Property for <%= @p_listing.display_type %> | House No. <%= @p_listing.house_no %></td></h5>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="slider-div">
+
+            <ul class="bxslider">
+
+              <% @property_images.each do |i| %>
+
+                  <li><%= image_tag i.image_file.url, :style => "width:100%; height:320px;" %></li>
+
+              <%end%>
+            </ul>
+
+            <div id="bx-pager">
+              <% @property_images.each do |i| %>
+              <%= image_tag i.image_file.url(:thumb) %>
+              <%end%>
+            </div>
+
+            </div>
+
+          <div class="panel panel-default">
+            <div class="description-panel"><h4>Description</h4></div>
+            <div class="panel-body">
+              <%= @p_listing.description %>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="description-panel"><h4>Key Facts</h4></div>
+            <div class="panel-body">
+
+              Area <%= @p_listing.flat_size %> | Room <%= @p_listing.room %> | Rent <%= @p_listing.total_rent %>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="description-panel"><h4>Equipment</h4></div>
+            <div class="panel-body">
+              <%= @p_listing.description %>
+            </div>
+          </div>
+
+
+<%= link_to 'Edit', edit_p_listing_path(@p_listing), class: 'btn btn-default' %> |
+<%= link_to 'Back', p_listings_path, class: 'btn btn-default' %>
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+  <div class="hidden-xs hidden-sm">
+  <div class="col-md-4 map-div-margin">
+    <div class="row">
+    <div class="panel panel-default">
+      <div class="map-panel-heading"><h4>Location Information</h4>
+      <span  style="float: right;margin-top: -29px;"><li class="fa fa-bars fa-lg"></li></span>
+      </div>
+      <div class="panel-body map-div" id="map">
+
+</div>
+      </div>
+</div>
+
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="contact-panel-heading"><h4>Contact Provider</h4>
+          <span  style="float: right;margin-top: -29px;"><li class="fa fa-envelope fa-lg"></li></span>
+        </div>
+        <div class="panel-body">
+          <%= link_to 'Contact', p_listings_path, class:'btn btn-contact' %>
+
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script>
+
+</div>
+

@@ -1,0 +1,2 @@
+module PListingsHelper
+end

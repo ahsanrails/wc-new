@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+
+<br><br>
+<div class="container-fluid">
+
+<div class="col-md-9 col-sm-10 col-xs-12">
+
+<%= link_to "Back", p_listings_path, class: "btn btn-default" %>
+
+<div class="row">
+
+<% if @search.search_p_listings.empty? %>
+
+<h1 style="color:white;" >No Record Found</h1>
+
+<% else %>
+
+<% @search.search_p_listings.each do |c| %>
+<br>  
+
+    <div class="thumbnail">
+      <%= image_tag c.p_image.url, :class => "style_image" %>
+      <div class="rent-on-img">$ <%= c.total_rent %></div>
+      <div class="image-footer">
+        <div class="footer-text">City <%= c.city_place %> - <%= c.property_type %> at <%= c.street %><br>
+         Bathroom - <%= c.bathroom %> | Bed - <%= c.room %>
+        </div>
+
+      </div>
+
+<% end %>
+    </div>
+<% end %>
+
+ </div>
+
+<br><br>
+<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+</div>
+
+  
+
+

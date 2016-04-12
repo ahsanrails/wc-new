@@ -1,0 +1,215 @@
+<%= form_for(@p_listing, :html => { :multipart => true }) do |f| %>
+  <% if @p_listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@p_listing.errors.count, "error") %> prohibited this p_listing from being saved:</h2>
+
+      <ul>
+      <% @p_listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+<br><br>
+    <div class="col-lg-7 col-md-10 col-sm-10 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title"><h4>Property Advertisement</h4></div>
+        </div>
+        <div class="panel-body">
+
+  <div class="col-md-11 col-sm-12 col-xs-12 col-md-offset-2">
+<br><br>
+
+<div class="row">
+<div class="col-md-9 col-sm-9 col-xs-10">
+  
+  <div class="radio-inputs test-font">
+    <div class="radio-inputs-lable"><span class="radio-label-span">Display Type</span></div>
+    
+    <div style="margin-left:150px; line-height:2.5;">
+
+
+      <label class="rad">
+      <%= f.text_field :display_type, type:"radio", value:"Rent", class:"checkradios" %>
+      <i></i></label>&nbsp;Rent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      <label class="rad">
+      <%= f.text_field :display_type, type:"radio", value:"Purchase" %><i></i></label>&nbsp;Purchase
+  
+    </div>
+
+  </div>
+
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-md-9 col-sm-9 col-xs-10">
+  
+  <div class="radio-inputs test-font">
+    <div class="radio-inputs-lable"><span class="radio-label-span">Type of Use</span></div>
+
+  <div style="margin-left:150px; line-height:2.5;">
+
+      <label class="rad">
+      <%= f.text_field :use_type, type:"radio", value:"Living" %><i></i></label>&nbsp;Living&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label class="rad">
+      <%= f.text_field :use_type, type:"radio", value:"Trade" %><i></i></label>&nbsp;Trade
+  
+  </div>
+  </div>
+
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-md-9 col-sm-9 col-xs-10">
+  
+  <div class="radio-inputs test-font">
+    <div class="radio-inputs-lable"><span class="radio-label-span">Property Type</span></div>
+        <div style="margin-left:150px; line-height:2.5;">
+  
+      <label class="rad">
+      <%= f.text_field :property_type, type:"radio", value:"Apartment" %><i></i></label>&nbsp;Apartment&nbsp;&nbsp;
+      <label class="rad">
+      <%= f.text_field :property_type, type:"radio", value:"House" %><i></i></label>&nbsp;House&nbsp;&nbsp;
+      <label class="rad">
+      <%= f.text_field :property_type, type:"radio", value:"Property" %><i></i></label>&nbsp;Property
+
+    </div>
+  </div>
+
+</div><br><br><br>
+</div>
+
+<div class="row">
+<div class="col-md-9 col-sm-9 col-xs-10">
+  <%= f.text_field :title, class:"form-control", id:"p_listing_title", placeholder:"Title of the Display" %>
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-sm-6 col-xs-6 padding_colsm6">
+  <%= f.text_field :street, class:"form-control", id:"p_listing_street", placeholder:"View Street" %>
+</div>
+<div class="col-sm-3 col-xs-4 padding_colsm3">
+  <%= f.text_field :house_no, class:"form-control", id:"p_listing_house_no", placeholder:"House No." %>
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-sm-6 col-xs-6 padding_colsm6">
+  <%= f.text_field :city_place, class:"form-control", id:"p_listing_city_place", placeholder:"Place" %>
+</div>
+<div class="col-sm-3 col-xs-4 padding_colsm3">
+  <%= f.text_field :zip_code, class:"form-control", id:"p_listing_zip_code", placeholder:"Zip Code" %>
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-sm-6 col-xs-6 padding_colsm6">
+  <%= f.text_field :flat_size, class:"form-control", id:"p_listing_flat_size", placeholder:"Rasidential Area                                       m2" %>
+</div>
+<div class="col-sm-3 col-xs-4 padding_colsm3">
+  <%= f.text_field :room, class:"form-control", id:"p_listing_room", placeholder:"Room" %>
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-sm-6 col-xs-6 padding_colsm6">
+  <%= f.text_field :total_rent, class:"form-control", id:"p_listing_total_rent", placeholder:"Total Rent(warm)" %>
+</div>
+<div class="col-sm-3 col-xs-4 padding_colsm3">
+  <%= f.text_field :bathroom, class:"form-control", id:"p_listing_bathroom", placeholder:"Bathroom" %>
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-sm-6 col-xs-6 padding_colsm6">
+
+<div class="calender-icon">
+<span><i class="fa fa-calendar fa-lg"></i></span> 
+     <%= f.text_field :date, id:"datepicker",:autocomplete => :off,  :placeholder => "Available From", class:"form-control" %>
+</div>
+
+
+</div><br><br>
+</div>
+
+<div class="row">
+<div class="col-md-9 col-sm-9 col-xs-10">
+  <%= f.text_area :description, class:"form-control", id:"p_listing_description", placeholder:"Property Description (Max. 2000 Words)", style:"height:200px; width:100%;" %>
+</div><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div class="row">
+<div class="col-md-9 col-sm-9 col-xs-10">
+  <%= f.fields_for :property_images do |p| %>
+      <% if p.object.new_record? %>
+<div class="upload-box">
+   <div class="upload-entypo">
+        
+<span id="target"><h2 style="text-align:center; margin-top:52px;"><i class="fa fa-camera"></i></h2></span>
+    
+    </div>
+    <p class="test-font" style="margin-top: 22px;"><strong>Add Photos</strong><br> Drag a Photo from a folder over here or click here to </p>
+
+
+
+
+
+
+      <div class="fileUpload btn-upload">
+
+<span class="test-font">Upload</span>
+
+<%= p.file_field :image_file, type: :file, :multiple => true, name:"property_images[image_file][]", class:"upload", id:"p_listing_p_image" %>
+
+
+</div>
+
+      </div><br>
+<p class="test-font"><mark class="note">Note:</mark>
+Allowed Formates for photos are .JPG, .PNG, .GIF, Maximum Size is 5MB.</p>
+      <% else %>
+          <div class="images-box">
+
+      <a href="">
+        <%= image_tag(p.object.image_file.url) rescue '' %>
+        <span><b>remove</b></span>
+      </a>
+          </div>
+      <% end %>
+  <% end %>
+</div>
+</div>
+
+  <div class="field">
+    
+    <%= f.text_field :longitude, type:"hidden" %>
+  </div>
+  <div class="field">
+    
+    <%= f.text_field :latitude, type:"hidden" %>
+  </div>
+
+<div class="row">
+<div class="col-md-9 col-sm-9 col-xs-10">
+
+<%= link_to 'Back', p_listings_path, class: "btn btn-back btn-lg" %>
+
+<%= f.submit "Continue", class: "btn btn-save btn-lg" %>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<% end %>

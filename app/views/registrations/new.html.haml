@@ -1,0 +1,29 @@
+.container
+  .row
+    %section
+      .wrapper-inside
+        .reg-heading
+          %p.heading-name Registration Details
+        = form_for @registration, html: { class: "basic-grey" } do |f|
+          - if @registration.errors.any?
+            #error_explanation
+              %h2
+              = pluralize(@registration.errors.count, "error")
+              prohibited this registration from being saved:
+              %ul
+                - @registration.errors.full_messages.each do |message|
+                  %li= message
+          .field
+            = f.hidden_field :plan_id, value: @plan.id
+          .field
+            = f.label :full_name
+            = f.text_field :full_name
+          .field
+            = f.label :company
+            = f.text_field :company
+          .field
+            = f.label :contact
+            = f.text_field :contact
+          .field
+            %script.stripe-button{src: "https://checkout.stripe.com/checkout.js",
+                data: {amount: @plan.price*100, description: @plan.name, key: Rails.application.secrets.stripe_publishable_key}}

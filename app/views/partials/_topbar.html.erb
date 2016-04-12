@@ -1,0 +1,50 @@
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <!-- <i class="fa fa-bars fa-lg"></i> -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <% if params[:controller] == 'home' %>
+
+   <a href="/home" title="" class="navbar-brand btn logo"><%= image_tag("logo.png", class:"logo-image") %></a>
+   
+    <% else %>
+  
+  <a href="/home" title="" class="navbar-brand btn logo"><%= image_tag("logo_transparent.png", class:"single_logo") %></a>
+
+   <%= form_tag p_listings_path, :method => 'get' do  %>
+  <div class="row">
+  <div class="col-xs-4 col-sm-5 hidden-sm hidden-xs">
+  <div class="logo-right-search-icon">
+  <span><h3><i class="fa fa-search fa-sm"></i></h3></span>
+  <%= text_field_tag :search, params[:search], class:"form-control logo-search-input", placeholder: "What are you looking for ?" %>
+  </div>
+  </div>
+  </div>
+  <% end %>
+    <% end %>
+
+
+
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 collapse navbar-collapse right" id="bs-example-navbar-collapse-1">
+
+<% if user_signed_in? %>
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete , class: "btn btn_signout" %>
+<% else %>
+<%= link_to "Sign In", '/popups/login', remote: "true", class: "btn btn_signin" %>
+<% end %>
+
+<%= link_to "Post Property", new_p_listing_path, class:"btn btn_post_property"  %>
+
+
+
+
+</div>
+
+
+

@@ -1,0 +1,1 @@
+json.extract! @p_listing, :id, :display_type, :use_type, :property_type, :title, :street, :house_no, :city_place, :zip_code, :flat_size, :room, :bathroom, :total_rent, :date, :description, :longitude, :latitude, :created_at, :updated_at
